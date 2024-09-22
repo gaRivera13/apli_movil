@@ -1,0 +1,140 @@
+<ion-content [fullscreen]="false">
+  <div class="centrar">
+    <div class="center-container">
+      <!-- Menú Lateral -->
+      <ion-menu contentId="main-content">
+        <ion-header>
+          <ion-toolbar style="color: #021623">
+            <ion-title style="text-align: center;">Menu</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <ion-item class="menu-item" button (click)="cambiarVista('inicio')">
+            <ion-icon slot="start" name="home-outline"></ion-icon>
+            Inicio
+          </ion-item>
+          <ion-item class="menu-item" button (click)="cambiarVista('miClase')">
+            <ion-icon slot="start" name="clipboard-outline"></ion-icon>
+            Mi Clase
+          </ion-item>
+          <ion-item class="menu-item" button (click)="cambiarVista('misDatos')">
+            <ion-icon slot="start" name="person-outline"></ion-icon>
+            Mis Datos
+          </ion-item>
+          <ion-item class="menu-item" button (click)="cerrarSesion()" style="margin-top: 435px;">
+            <ion-icon slot="start" name="log-out"></ion-icon>
+            Cerrar sesión
+          </ion-item>
+        </ion-content>
+      </ion-menu>
+
+      <!-- Contenido Principal -->
+      <div class="ion-page" id="main-content">
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title #titulo class="ion-text-left ion-text font-size-18">
+              Sistema de Asistencia DUOC UC
+            </ion-title>
+          </ion-toolbar>
+        </ion-header>
+
+        <div class="center-container">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title class="ion-text-center">
+                Los datos de su clase son los siguientes:
+              </ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="borde">
+              <ng-container *ngIf="datosQR; else noDatos">
+                <table class="datos-tabla">
+                  <thead>
+                    <tr>
+                      <th>Información</th>
+                      <th>Detalles</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Bloque de Inicio</td>
+                      <td>{{asistencia!.bloqueInicio}}</td>
+                    </tr>
+                    <tr>
+                      <td>Bloque de Término</td>
+                      <td>{{asistencia!.bloqueTermino}}</td>
+                    </tr>
+                    <tr>
+                      <td>Día</td>
+                      <td>{{asistencia!.dia}}</td>
+                    </tr>
+                    <tr>
+                      <td>Hora de Fin</td>
+                      <td>{{asistencia!.horaFin}}</td>
+                    </tr>
+                    <tr>
+                      <td>Hora de Inicio</td>
+                      <td>{{asistencia!.horaInicio}}</td>
+                    </tr>
+                    <tr>
+                      <td>Sigla</td>
+                      <td>{{asistencia!.idAsignatura}}</td>
+                    </tr>
+                    <tr>
+                      <td>Nombre de Asignatura</td>
+                      <td>{{asistencia!.nombreAsignatura}}</td>
+                    </tr>
+                    <tr>
+                      <td>Nombre del Profesor</td>
+                      <td>{{asistencia!.nombreProfesor}}</td>
+                    </tr>
+                    <tr>
+                      <td>Sección</td>
+                      <td>{{asistencia!.seccion}}</td>
+                    </tr>
+                    <tr>
+                      <td>Sede</td>
+                      <td>{{asistencia!.sede}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </ng-container>
+              <ng-template #noDatos>
+                <h2 class="ion-text-center">
+                  Sin Información
+                </h2>
+              </ng-template>
+            </ion-card-content>
+          </ion-card>
+        </div>
+
+        <div class="ion-text-center">
+          <ion-col class="centrar">
+            <ion-button *ngIf="!escaneando" (click)="comenzarEscaneoQR()" shape="round" size="medium">
+              <ion-icon slot="start" name="videocam-outline"></ion-icon>
+              Comenzar Escaneo QR
+            </ion-button>
+
+            <ion-button *ngIf="escaneando" (click)="detenerEscaneoQR()" shape="round" size="medium">
+              <ion-icon slot="start" name="stop-circle-outline"></ion-icon>
+              Detener Escaneo QR
+            </ion-button>
+
+            <ion-button (click)="limpiarDatos()" shape="round" size="medium">
+              <ion-icon slot="start" name="trash-outline"></ion-icon>
+              Limpiar Datos
+            </ion-button>
+          </ion-col>
+        </div>
+
+        <div class="ion-text-center">
+          <video #video [hidden]="!escaneando" width="80%" style="max-height: 300px;"></video>
+          <canvas #canvas hidden></canvas>
+        </div>
+        <br><br>
+      </div>
+    </div>
+  </div>
+</ion-content>

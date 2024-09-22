@@ -1,0 +1,115 @@
+// inicio.page.scss
+
+// Global styles
+.page {
+  background-color: #FFFFFF; // White background
+}
+
+// Header styles
+ion-header {
+  ion-toolbar {
+    --background: #021623; // Set the background color to #021623
+    ion-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #FFFFFF; // Keep the text color as white
+    }
+  }
+}
+
+// Content styles
+ion-content {
+  --ion-background-color: #FFFFFF; // White background
+  ion-tabs {
+    ion-tab-bar {
+      background-color: #FFFFFF; // White background
+      ion-tab-button {
+        --ion-color: var(--ion-color-primary);
+        ion-label {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  .ion-padding-top {
+    padding-top: 20px;
+  }
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333; // Dark gray text color
+  }
+  p {
+    font-size: 16px;
+    color: #666; // Gray text color
+  }
+  .img {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.fondo {
+  background-image: url('../../../assets/img/pao.jpg');
+  background-size: cover; /* Forzar que la imagen se escale al 100% del contenedor */
+  background-position: center; /* Centrar la imagen */
+  width: 7000px;
+  height: 775px; /* Asegura que el contenedor cubra la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-container {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center;     /* Centra verticalmente */
+  height: 100vh;           /* Ocupa toda la altura de la pantalla */
+}
+
+.centrar {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center;     /* Centra verticalmente */
+}
+
+.menu-item {
+  color: black;
+  --background: #FFFFFF;
+
+  ion-icon {
+    color: black;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: blue !important;
+    --background: black;
+
+    ion-icon {
+      color: white;
+    }
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .center-container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;     /* Centra verticalmente */
+    height: 80%;           /* Ocupa toda la altura de la pantalla */
+    width: 80%;
+    text-align: center;
+    margin: auto;
+  }
+
+  .foto-portada {
+    width: 20%;
+    margin-top: 40px !important;
+    display: block; /* Asegura que se comporte como un bloque */
+    margin: 0 auto; /* Centra horizontalmente */
+    max-width: 100%; /* Asegura que no exceda el ancho del contenedor */
+    height: auto; /* Mantiene la relación de aspecto */
+  }
+}

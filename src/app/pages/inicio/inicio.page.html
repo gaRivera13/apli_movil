@@ -1,0 +1,68 @@
+<ion-content [fullscreen]="false">
+  <div class="centrar">
+    <div class="center-container">
+      <!-- Menú Lateral -->
+      <ion-menu contentId="main-content">
+        <ion-header>
+          <ion-toolbar style="color: #021623">
+            <ion-title style="text-align: center;">Menu</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <ion-item class="menu-item" button (click)="cambiarVista('inicio')">
+            <ion-icon slot="start" name="home-outline"></ion-icon>
+            Inicio
+          </ion-item>
+          <ion-item class="menu-item" button (click)="cambiarVista('miClase')">
+            <ion-icon slot="start" name="clipboard-outline"></ion-icon>
+            Mi Clase
+          </ion-item>
+          <ion-item class="menu-item" button (click)="cambiarVista('misDatos')">
+            <ion-icon slot="start" name="person-outline"></ion-icon>
+            Mis Datos
+          </ion-item>
+          <ion-item class="menu-item" button (click)="cerrarSesion()" style="margin-top: 435px;">
+            <ion-icon slot="start" name="log-out"></ion-icon>
+            Cerrar sesión
+          </ion-item>            
+        </ion-content>
+      </ion-menu>
+
+      <!-- Contenido Principal -->
+      <div class="ion-page" id="main-content">
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title #titulo class="ion-text-left ion-text font-size-18">
+              Sistema de Asistencia DUOC UC
+            </ion-title>
+          </ion-toolbar>
+        </ion-header>
+        
+        <img alt="DUOC" src="../../../assets/img/Logo_DuocUC.svg.png" class="foto-portada"/>
+        <!-- Barra de navegación -->
+        <ion-title class="ion-padding-top">
+          <ion-label>
+            <h1 class="ion-text-center">
+              Bienvenido/a {{ usuario.nombre }} {{ usuario.apellido }}
+            </h1>
+          </ion-label>
+        </ion-title>
+
+        <div class="ion-text-center">
+          <p style="margin-top: 5px !important;">
+            Para escanear el código QR de la asistencia a clases ve al apartado "Mi clase"
+          </p>
+          <img class="img" 
+          alt="Cámara del celular enfocando al proyector de clases donde el profesor muestra el código QR"
+          height="400"
+          src="../../../assets/img/camera-icon-symbol-vector-flat-600nw-2475639413.jpg"
+          width="600" />
+          <br><br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

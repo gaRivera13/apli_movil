@@ -1,0 +1,115 @@
+
+ion-header {
+  ion-toolbar {
+    --background: #021623; // Set the background color to #021623
+    ion-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #FFFFFF; // Keep the text color as white
+    }
+  }
+}
+
+ion-content {
+  --background: white; // Establece el fondo del ion-content a blanco
+}
+
+h1 {
+  font-size: 30px;
+  color: black /* Color del título */
+}
+
+h4 {
+  color: gray; /* Color del subtítulo */
+}
+
+ion-card {
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --background: white; // Establece el fondo del ion-card a blanco
+  border: 1px solid #021623; // Color y grosor del borde
+}
+
+ion-item {
+  margin-bottom: 10px;
+}
+
+ion-button {
+  margin: 5px;
+}
+
+.ion-text-center {
+  margin: 20px 0;
+}
+
+.center-container {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center;     /* Centra verticalmente */
+  height: 100vh;           /* Ocupa toda la altura de la pantalla */
+}
+
+.centrar {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center;     /* Centra verticalmente */
+}
+
+.menu-item {
+  color: black;
+  --background: #FFFFFF;
+
+  ion-icon {
+    color: black;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: blue !important;
+    --background: black;
+
+    ion-icon {
+      color: white;
+    }
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .center-container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;     /* Centra verticalmente */
+    height: 80%;           /* Ocupa toda la altura de la pantalla */
+    width: 80%;
+    text-align: center;
+    margin: auto;
+  }
+
+  .foto-portada {
+    width: 20%;
+    margin-top: 40px !important;
+    display: block; /* Asegura que se comporte como un bloque */
+    margin: 0 auto; /* Centra horizontalmente */
+    max-width: 100%; /* Asegura que no exceda el ancho del contenedor */
+    height: auto; /* Mantiene la relación de aspecto */
+  }
+}
+
+ion-card {
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --background: white; // Establece el fondo blanco
+}
+
+ion-item {
+  margin-bottom: 10px;
+  --background: white; // Establece el fondo blanco
+  color: black; // Asegúrate de que el texto sea negro
+}
+
+
+
+

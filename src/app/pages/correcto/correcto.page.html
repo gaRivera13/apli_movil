@@ -1,0 +1,30 @@
+<ion-content [fullscreen]="false">
+  <div class="centrar">
+    <div class="center-container">
+      <div class="fondo">
+        <div class="ion-padding-vertical">
+          <br><br><br>
+          <ion-card class="ion-text-center" style="background-color: #ffffff; width: 450px; height: 580px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
+            <img alt="DUOC" src="../../../assets/img/Logo_DuocUC.svg.png" class="foto-portada"/>
+            <ion-card-content>
+              <ion-card-header class="ion-card-header">
+                <h2>Sistema de Asistencia DUOC</h2>
+              </ion-card-header>
+              <br>
+              <h2 style="color: black;">¡Perfecto! Tu contraseña es...</h2>
+              <h1 style="text-align: center; color: black; font-weight: bold;">
+                {{ usuario.password }} <!-- Muestra la contraseña del objeto usuario -->
+              </h1>
+              <img src="../../../assets/img/hombre-feliz.jpg" alt="" class="foto-correcto-incorrecto"/>
+              <br><br>
+              <!-- Enlace para volver a inicio de sesión -->
+              <ion-label>
+                <a [routerLink]="['/login']">Volver a inicio de sesión</a>
+              </ion-label> 
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

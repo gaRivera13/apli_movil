@@ -1,0 +1,41 @@
+<ion-content [fullscreen]="false"> 
+  <div class="centrar">
+    <div class="center-container">
+      <div class="fondo">
+        <div class="ion-padding-vertical">
+          <br><br><br>
+          <ion-card class="ion-text-center" style="background-color: #ffffff; width: 450px; height: 560px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
+            <img alt="DUOC" src="../../../assets/img/Logo_DuocUC.svg.png" class="foto-portada"/>
+            <ion-card-content>
+              <ion-card-header class="ion-card-header">
+                <h2>Sistema de Asistencia DUOC</h2>
+              </ion-card-header>
+              <h2 style="color: black;">Recuperar contraseña</h2>
+              <h3 style="color: black;">Paso 1: Ingresa tu correo</h3>
+              <form #correoForm="ngForm">
+                <ion-item>
+                  <ion-input [(ngModel)]="correo" name="correo" label="Ingresa tu correo" labelPlacement="floating" type="email" required></ion-input>
+                </ion-item>
+                <br>
+                <ion-text color="danger" *ngIf="invalidCorreo" style="font-weight: bold;">Correo no válido. Intenta nuevamente.</ion-text>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col size="12" class="centrar">
+                      <ion-button shape="round" size="medium" type="submit" (click)="recuperarContrasena()">
+                        <ion-icon slot="icon-only" name="refresh-outline"></ion-icon>
+                        Recuperar contraseña</ion-button>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </form>
+              <br><br>
+              <ion-label>
+                <a [routerLink]="['/login']">Volver a inicio de sesión</a>
+              </ion-label> 
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

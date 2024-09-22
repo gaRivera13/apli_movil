@@ -1,0 +1,66 @@
+<ion-content [fullscreen]="false">
+  <div class="centrar">
+    <div class="center-container">
+      <div class="fondo">
+        <div class="ion-padding-vertical">
+          <br><br><br>
+          <ion-card class="ion-text-center" style="background-color: #ffffff; width: 450px; height: 560px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
+            <img alt="DUOC" src="../../../assets/img/Logo_DuocUC.svg.png" class="foto-portada"/>
+            <ion-card-content>
+              <ion-card-header class="ion-card-header">
+                <h2>Sistema de Asistencia DUOC</h2>
+              </ion-card-header>
+              <h2 style="color: black;">Recuperar contraseña</h2>
+              <h3 style="color: black;">Paso 2: Responde la pregunta secreta</h3>
+              <!-- Formulario para verificar respuesta -->
+              <form (ngSubmit)="verificarRespuesta()">
+                <!-- Mostrar nombre y apellido del usuario -->
+                <h4 class="centrar" style="display: block; text-align: center; font-weight: bold; color: black">
+                  {{ usuario.nombre }} {{ usuario.apellido }}
+                </h4>
+                <!-- Mostrar pregunta secreta -->
+                <h4 class="centrar" style="display: block; text-align: center; color: black">
+                  {{ usuario.preguntaSecreta }}
+                </h4>
+                <!-- Input para la respuesta de la pregunta secreta -->
+                <ion-item>
+                  <ion-input [(ngModel)]="respuestaUsuario"
+                            name="respuestaSecreta"
+                            label="Ingresa tu respuesta"
+                            labelPlacement="floating"
+                            type="text"
+                            required></ion-input>
+                </ion-item>
+                <br>
+                <!-- Botón para verificar la respuesta -->
+                <ion-grid>
+                  <ion-row>
+                    <ion-col size="12" class="centrar">
+                      <ion-button shape="round"
+                                  size="medium"
+                                  type="submit">
+                        <ion-icon slot="icon-only" name="refresh-outline"></ion-icon>
+                        Verificar respuesta
+                      </ion-button>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+                <!-- Mostrar mensaje si la respuesta es incorrecta -->
+                <ion-text color="danger"
+                          *ngIf="respuestaIncorrecta"
+                          style="font-weight: bold; display: block; text-align: center;">
+                  Respuesta incorrecta. Intenta nuevamente.
+                </ion-text>
+              </form>
+              <br>
+              <!-- Enlace para volver a inicio de sesión -->
+              <ion-label>
+                <a [routerLink]="['/login']">Volver a inicio de sesión</a>
+              </ion-label>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
