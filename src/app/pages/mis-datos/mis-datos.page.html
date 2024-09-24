@@ -1,28 +1,41 @@
+<!-- Menú Lateral -->
 <ion-menu contentId="main-content">
-    <ion-header>
-      <ion-toolbar style="color: #021623">
-        <ion-title style="text-align: center;">Menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content class="ion-padding">
-      <ion-item class="menu-item" button (click)="cambiarVista('inicio')">
-        <ion-icon slot="start" name="home-outline"></ion-icon>
-        Inicio
-      </ion-item>
-      <ion-item class="menu-item" button (click)="cambiarVista('miClase')">
-        <ion-icon slot="start" name="clipboard-outline"></ion-icon>
-        Mi Clase
-      </ion-item>
-      <ion-item class="menu-item" button (click)="cambiarVista('misDatos')">
-        <ion-icon slot="start" name="person-outline"></ion-icon>
-        Mis Datos
-      </ion-item>
-      <ion-item class="menu-item" button (click)="cerrarSesion()" style="margin-top: 435px;">
-        <ion-icon slot="start" name="log-out"></ion-icon>
-        Cerrar sesión
-      </ion-item>            
-    </ion-content>
-  </ion-menu>
+  <ion-header>
+    <ion-toolbar style="color: #021623">
+      <ion-title style="text-align: center;">Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-button 
+      class="menu-item" 
+      style="width: 100%; justify-content: flex-start;" 
+      (click)="cambiarVista('inicio')">
+      <ion-icon slot="start" name="home-outline"></ion-icon>
+      Inicio
+    </ion-button>
+    <ion-button 
+      class="menu-item" 
+      style="width: 100%; justify-content: flex-start;" 
+      (click)="cambiarVista('miClase')">
+      <ion-icon slot="start" name="clipboard-outline"></ion-icon>
+      Mi Clase
+    </ion-button>
+    <ion-button 
+      class="menu-item" 
+      style="width: 100%; justify-content: flex-start;" 
+      (click)="cambiarVista('misDatos')">
+      <ion-icon slot="start" name="person-outline"></ion-icon>
+      Mis Datos
+    </ion-button>
+    <ion-button 
+      class="menu-item" 
+      style="width: 100%; justify-content: flex-start; margin-top: 435px;" 
+      (click)="cerrarSesion()">
+      <ion-icon slot="start" name="log-out"></ion-icon>
+      Cerrar sesión
+    </ion-button>
+  </ion-content>
+</ion-menu>   
   
   <ion-header>
     <ion-toolbar>
@@ -43,19 +56,19 @@
   
     <ion-card>
       <ion-card-content>
-        <ion-item>
+        <ion-item #itemCuenta>
           <ion-label position="floating" style="color: black;">Cuenta</ion-label>
           <ion-input [(ngModel)]="usuario.cuenta" style="color: black;"></ion-input>
         </ion-item>
-        <ion-item>
+        <ion-item #itemNombre>
           <ion-label position="floating" style="color: black;">Nombre</ion-label>
           <ion-input [(ngModel)]="usuario.nombre" style="color: black;"></ion-input>
         </ion-item>
-        <ion-item>
+        <ion-item #itemApellido>
           <ion-label position="floating" style="color: black;">Apellido</ion-label>
           <ion-input [(ngModel)]="usuario.apellido" style="color: black;"></ion-input>
         </ion-item>
-        <ion-item>
+        <ion-item #itemEducacion>
           <ion-label position="floating" style="color: black;">Educación</ion-label>
           <ion-select [(ngModel)]="usuario.nivelEducacional!.id" style="color: black;">
             <ion-select-option *ngFor="let nivel of listaNivelesEducacionales" [value]="nivel.id" style="color: black;">
@@ -63,27 +76,41 @@
             </ion-select-option>
           </ion-select>
         </ion-item>
-        <ion-item>
+        <ion-item #itemCorreo>
           <ion-label position="floating" style="color: black;">Correo</ion-label>
           <ion-input [(ngModel)]="usuario.correo" style="color: black;"></ion-input>
         </ion-item>
-        <ion-item>
+        <ion-item #itemFechaNacimiento>
+          <table>
+              <tr>
+                  <td class="font-size-12">Nacimiento: </td>
+                  <td class="cell-align-right">
+                      <input style="background-color: white !important;" matInput 
+                          [matDatepicker]="fechaNacimiento"
+                          [(ngModel)]="usuario.fechaNacimiento"
+                          placeholder="dd/mm/yyyy"
+                          class="date-width">
+                  </td>
+                  <td class="cell-width-0">
+                      <mat-datepicker-toggle matSuffix [for]="fechaNacimiento"></mat-datepicker-toggle>
+                      <mat-datepicker #fechaNacimiento></mat-datepicker>
+                  </td>
+              </tr>
+          </table>
+      </ion-item>
+        <ion-item #itemPreguntaSecreta>
           <ion-label position="floating" style="color: black;">Pregunta secreta</ion-label>
           <ion-input [(ngModel)]="usuario.preguntaSecreta" style="color: black;"></ion-input>
         </ion-item>
-        <ion-item>
+        <ion-item #itemRespuestaSecreta>
           <ion-label position="floating" style="color: black;">Respuesta secreta</ion-label>
           <ion-input [(ngModel)]="usuario.respuestaSecreta" style="color: black;"></ion-input>
         </ion-item>
-        <ion-item>
-          <ion-label position="floating" style="color: black;">Nacimiento</ion-label>
-          <ion-input [(ngModel)]="usuario.fechaNacimiento" type="date" style="color: black;"></ion-input>
-        </ion-item>
-        <ion-item>
+        <ion-item #itemContraseña>
           <ion-label position="floating" style="color: black;">Contraseña</ion-label>
           <ion-input type="password" [(ngModel)]="usuario.password" style="color: black;"></ion-input>
         </ion-item>
-        <ion-item>
+        <ion-item #itemRepetirContraseña>
           <ion-label position="floating" style="color: black;">Repetir contraseña</ion-label>
           <ion-input type="password" [(ngModel)]="usuario.password" style="color: black;"></ion-input>
         </ion-item>
@@ -91,7 +118,7 @@
     </ion-card>
   
     <div class="ion-text-center">
-      <ion-button (click)="limpiar2()" shape="round" size="medium">
+      <ion-button (click)="limpiar1()" shape="round" size="medium">
         <ion-icon name="trash-outline"></ion-icon>
         Limpieza
       </ion-button>

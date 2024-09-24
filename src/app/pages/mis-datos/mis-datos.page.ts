@@ -3,6 +3,7 @@ import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { AlertController, AnimationController } from '@ionic/angular';
 import { NivelEducacional } from 'src/app/model/nivel-educacional';
 import { Usuario } from 'src/app/model/usuario';
+import { Persona } from 'src/app/model/persona';
 
 @Component({
   selector: 'app-mis-datos',
@@ -68,21 +69,25 @@ export class MisDatosPage implements AfterViewInit {
     this.usuario.fechaNacimiento = undefined;
     this.usuario.password = '';
     
-    this.animateItem1(this.itemCuenta.nativeElement, 800);
-    this.animateItem1(this.itemNombre.nativeElement, 1100);
-    this.animateItem1(this.itemApellido.nativeElement, 1400);
-    this.animateItem1(this.itemCorreo.nativeElement, 1700);
-    this.animateItem1(this.itemEducacion.nativeElement, 2000);
-    this.animateItem1(this.itemPreguntaSecreta.nativeElement, 2300);
-    this.animateItem1(this.itemRespuestaSecreta.nativeElement, 2600);
-    this.animateItem1(this.itemFechaNacimiento.nativeElement, 2900);
-    this.animateItem1(this.itemContraseña.nativeElement, 3200);
-    this.animateItem1(this.itemRepetirContraseña.nativeElement, 3500);
+    const itemsToAnimate = [
+      this.itemCuenta.nativeElement,
+      this.itemNombre.nativeElement,
+      this.itemApellido.nativeElement,
+      this.itemCorreo.nativeElement,
+      this.itemEducacion.nativeElement,
+      this.itemPreguntaSecreta.nativeElement,
+      this.itemRespuestaSecreta.nativeElement,
+      this.itemFechaNacimiento.nativeElement,
+      this.itemContraseña.nativeElement,
+      this.itemRepetirContraseña.nativeElement
+    ];
+  
+    itemsToAnimate.forEach((item, index) => {
+      this.animateItem1(item, 800 + index * 300); // Ajusta el tiempo para un efecto escalonado
+    });
   }
 
-  public limpiar2(): void {
-    this.limpiar1(); // Similar funcionalidad, puedes ajustar si es necesario
-  }
+  
 
   public animateItem1(elementRef: any, duration: number) {
     this.animationController
